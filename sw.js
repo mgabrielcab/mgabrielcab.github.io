@@ -1,15 +1,9 @@
 const assets = [
   "/",
   "index.html",
-  "css/estilo.css",
-  "css/reset.css",
-  "img/arbol.png",
-  "img/Groupinformacion.png",
-  "img/persona.png",
-  "img/Vectora.png",
-  "img/Vectora.svg",
   "js/funcion.js",
   "json/manifest.json",
+  "img/logo.png"
 ];
 var cacheName = "GabbDev";
 
