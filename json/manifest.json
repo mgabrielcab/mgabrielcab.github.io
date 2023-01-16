@@ -2,8 +2,8 @@
     "name": "Encriptador Alura",
     "description": "Web para encriptar y desencriptar texto",
     "short_name": "GabbDevApp",
-    "start_url": "/docs/index.html",
-    "scope": "/docs/",
+    "start_url": "/index.html",
+    "scope": "/",
     "lang": "es-AR",
     "display": "standalone",
     "icons": [{
