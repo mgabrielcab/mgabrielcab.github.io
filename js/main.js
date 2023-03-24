@@ -125,4 +125,7 @@
     });
 
 })(jQuery);
+function showPopup(){
+    $('exampleModalCenter').modal('show');
+}
 
