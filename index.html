@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Ocampo - Tu Tienda de Confianza</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <div class="promo-bar active" id="promo-bar">
+        <p>¡ENVÍO GRATIS en compras superiores a $10.000! <a href="#">Ver detalles</a></p>
+        <button class="close-promo-bar" aria-label="Cerrar barra de promoción">×</button>
+    </div>
+
+    <header class="main-nav">
+        <a href="#" class="brand-logo">
+            <img src="images/logo.png" alt="Logo Grupo Ocampo" class="logo-img">
+            Grupo Ocampo
+        </a>
+        <div class="search-bar search-bar-navbar">
+            <input type="text" id="product-search" placeholder="Buscar productos..." aria-label="Buscar productos">
+            <i class="fas fa-search"></i>
+        </div>
+        <button class="nav-toggle" aria-label="Abrir menú de navegación">
+            <span class="hamburger"></span>
+        </button>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#products-catalog">Productos</a></li>
+                <li><a href="#offers">Ofertas</a></li>
+                <li><a href="#contact">Contacto</a></li>
+                <li><a href="#about">Nosotros</a></li>
+                <li class="cart-icon-container">
+                    <a href="#" id="open-cart-modal" aria-label="Ver carrito de solicitud">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="carousel-container">
+        <div class="carousel-slide">
+            <img src="images/carousel/slide 1.png" alt="Ofertas de Frutas Frescas">
+            <img src="images/carousel/slide 2.png" alt="Panadería Artesanal del Día">
+            </div>
+        <button class="carousel-prev" aria-label="Imagen anterior">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/></svg>
+        </button>
+        <button class="carousel-next" aria-label="Imagen siguiente">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+        </button>
+        <div class="carousel-dots"></div>
+    </div>
+
+    <main>
+        <section class="filters-section">
+            <div class="container filters-container">
+                <!-- Filtros eliminados: buscador y categorías -->
+            </div>
+        </section>
+
+        <section class="products-catalog" id="products-catalog">
+            <div class="container">
+                <h2>Nuestros Productos Frescos</h2>
+                <div class="product-grid" id="product-grid">
+                    </div>
+            </div>
+        </section>
+
+        <section id="offers" style="padding: var(--section-padding); text-align: center; background-color: #f0f0f0; color: var(--light-text-color);">
+            <div class="container" style="max-width: var(--container-max-width); margin: 0 auto;">
+                <h2>Ofertas Destacadas</h2>
+                <p>¡Explora nuestras promociones especiales de la semana!</p>
+                </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-section about-us">
+                <h3>Acerca de Nosotros</h3>
+                <p>Somos Grupo Ocampo, tu tienda de confianza. Ofrecemos productos frescos y de calidad directamente a tu hogar.</p>
+                <div class="social-links">
+                    <a href="https://facebook.com/grupoocampo" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/grupoocampo" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com/grupoocampo" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com/company/grupoocampo" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section quick-links">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="#home">Inicio</a></li>
+                    <li><a href="#products-catalog">Productos</a></li>
+                    <li><a href="#offers">Ofertas</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                    <li><a href="#privacy">Política de Privacidad</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section contact-info" id="contact">
+                <h3>Contáctanos</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Dirección: Calle Falsa 123, San Martín, Mendoza</p>
+                <p><i class="fas fa-phone"></i> Teléfono: +54 9 2634 567890</p>
+                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:info@grupoocampo.com">info@grupoocampo.com</a></p>
+            </div>
+
+            <div class="footer-section newsletter">
+                <h3>Newsletter</h3>
+                <p>Suscríbete a nuestro newsletter para recibir las últimas ofertas y noticias.</p>
+                <form action="#" method="POST">
+                    <input type="email" placeholder="Tu email" required>
+                    <button type="submit">Suscribirme</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> Grupo Ocampo. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <div class="cart-modal-overlay" id="cart-modal-overlay">
+        <div class="cart-modal-content">
+            <button class="close-cart-modal" id="close-cart-modal">&times;</button>
+            <h3>Tu Solicitud de Pedido</h3>
+            <div class="cart-items" id="cart-items">
+                <p class="empty-cart-message">Tu carrito está vacío.</p>
+            </div>
+            <div class="cart-actions">
+                <button id="clear-cart-btn" class="clear-cart-btn">Vaciar Carrito</button>
+                <button id="send-whatsapp-btn" class="send-whatsapp-btn"><i class="fab fa-whatsapp"></i> Enviar Pedido por WhatsApp</button>
+            </div>
+            <p class="cart-instructions">Completa tu solicitud y te contactaremos para coordinar la entrega y el pago.</p>
+        </div>
+    </div>
+
+    <!-- Botón flotante del carrito (FAB) -->
+    <button class="fab-cart-btn" id="fab-cart-btn" aria-label="Ver carrito de solicitud">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="fab-cart-count" id="fab-cart-count">0</span>
+    </button>
+
+    <script type="module" src="js/script.js"></script>
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
