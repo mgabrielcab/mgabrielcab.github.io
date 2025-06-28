@@ -374,13 +374,13 @@ const products = [
         featured: false
     },
     {
-        id: "prod032",
+        id: "57793890261646",
         name: "Brownie Mini SabeBien! 35g",
         description: "Pequeño y delicioso brownie individual de SabeBien!, ideal para un antojo dulce.",
-        image: "images/products/brownie-mini-sabebien.jpg", // No se proporciona SKU, usar nombre descriptivo
+        image: "images/products/57793890261646.jpg", // No se proporciona SKU, usar nombre descriptivo
         category: "Dulces",
         unit: "unidad",
-        sku: "504587", // El SKU del PDF es para Salmas, no para este producto. Usar uno de ejemplo o dejar vacío.
+        sku: "57793890261646", // El SKU del PDF es para Salmas, no para este producto. Usar uno de ejemplo o dejar vacío.
         vida_util: "100 días",
         brand: "SabeBien!",
         featured: false
@@ -440,6 +440,13 @@ const products = [
     },
 
 ];
+
+// === DEBUG: Mostrar marcas únicas en consola ===
+(function() {
+  const brands = products.map(p => p.brand).filter(Boolean);
+  const uniqueBrands = [...new Set(brands)].sort();
+  console.log('[DEBUG] Marcas únicas encontradas en products.js:', uniqueBrands);
+})();
 
 // Exporta el array de productos
 export default products;

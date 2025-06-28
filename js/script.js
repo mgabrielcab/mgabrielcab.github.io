@@ -423,6 +423,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentSearchTerm = '';
     let currentCategoryFilter = 'all';
+    let currentBrandFilter = '';
 
     // Función para renderizar un solo producto
     function createProductCard(product) {
@@ -482,28 +483,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // Función para renderizar todos los productos aplicando filtros y búsqueda
     function renderProducts() {
         if (!productGrid) return;
-
-        productGrid.innerHTML = ''; // Limpia el grid
-
+        productGrid.innerHTML = '';
         // Filtrar productos
         const filteredProducts = products.filter(product => {
             const matchesSearch = product.name.toLowerCase().includes(currentSearchTerm.toLowerCase()) ||
                                   product.description.toLowerCase().includes(currentSearchTerm.toLowerCase()) ||
                                   product.brand.toLowerCase().includes(currentSearchTerm.toLowerCase()) ||
                                   (product.sku && product.sku.toLowerCase().includes(currentSearchTerm.toLowerCase()));
-
-
             const matchesCategory = currentCategoryFilter === 'all' || product.category === currentCategoryFilter;
-
-            return matchesSearch && matchesCategory;
+            const matchesBrand = !currentBrandFilter || product.brand === currentBrandFilter;
+            return matchesSearch && matchesCategory && matchesBrand;
         });
-
         if (filteredProducts.length === 0) {
             productGrid.innerHTML = '<p style="text-align: center; width: 100%; padding: 50px; color: #888;">No se encontraron productos que coincidan con tu búsqueda o filtros.</p>';
             return;
         }
-
-        // Renderizar los productos filtrados
         filteredProducts.forEach(product => {
             const card = createProductCard(product);
             productGrid.appendChild(card);
@@ -523,6 +517,35 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+
+    // === FILTRO DE MARCA ===
+    (function() {
+      const brands = products.map(p => p.brand).filter(Boolean);
+      const uniqueBrands = [...new Set(brands)].sort();
+      const container = document.getElementById('brand-filter-container');
+      if (!container) return;
+      container.innerHTML = '';
+      const allBtn = document.createElement('button');
+      allBtn.className = 'brand-btn active';
+      allBtn.textContent = 'Todas';
+      allBtn.setAttribute('data-brand', '');
+      container.appendChild(allBtn);
+      uniqueBrands.forEach(brand => {
+        const btn = document.createElement('button');
+        btn.className = 'brand-btn';
+        btn.textContent = brand;
+        btn.setAttribute('data-brand', brand);
+        container.appendChild(btn);
+      });
+      container.addEventListener('click', function(e) {
+        if (e.target.classList.contains('brand-btn')) {
+          document.querySelectorAll('.brand-btn').forEach(btn => btn.classList.remove('active'));
+          e.target.classList.add('active');
+          currentBrandFilter = e.target.getAttribute('data-brand') || '';
+          renderProducts();
+        }
+      });
+    })();
 
     // Event listener para el buscador
     if (productSearchInput) {
@@ -591,3 +614,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // Inicializa el contador del FAB al cargar
     updateFabCartCount();
 });
+
+// Eliminar bloque duplicado y logs de depuración del filtro de marca al final del archivo
