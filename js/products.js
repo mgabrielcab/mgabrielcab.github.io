@@ -341,7 +341,7 @@ const products = [
         id: "504161",
         name: "Budín Marmolado Valente 170g",
         description: "Budín marmolado Valente, una opción clásica para los amantes de la vainilla y el chocolate.",
-        image: "images/products/504161.jpg", // SKU 504161
+        image: "images/products/504161.jpg", // SKU 504162
         category: "Dulces",
         unit: "unidad",
         sku: "504161",
