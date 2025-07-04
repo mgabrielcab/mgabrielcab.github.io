@@ -23,12 +23,6 @@
         </div>
         <a href="index.html" class="catalogo-navbar-btn">Volver al Inicio</a>
     </nav>
-    <!--
-      Carrusel de imágenes sugerido para la portada del catálogo.
-      Tamaño recomendado de imágenes: 1400 x 420 px (formato horizontal, JPG o PNG, fondo transparente o institucional).
-      Para móviles, se recomienda también una versión 700 x 350 px o imágenes que sean legibles a 400 px de ancho.
-      Las imágenes deben ser livianas (<300 KB) y de buena calidad.
-    -->
     <section class="catalogo-carousel">
       <div class="carousel-wrapper">
         <div class="carousel-slide"><img src="images/carrusel/banner-1.png" alt="Promoción 1" style="width:100%;height:auto;"></div>
@@ -39,16 +33,13 @@
       <div class="carousel-dots" style="text-align:center;margin-top:10px;"></div>
     </section>
 
-    <!-- Estructura del catálogo de productos -->
     <main class="catalogo-main">
       <div id="catalog-category-buttons" class="catalogo-filtros"></div>
-      <!-- Filtro alternativo para móvil -->
       <div class="catalogo-filtros-mobile" style="display:none; margin-bottom:1em;">
         <select id="catalog-category-select" style="width:100%;padding:10px 16px;border-radius:50px;border:1px solid #bbb;font-size:1em;min-width:180px;"></select>
       </div>
       <div id="catalog-grid"></div>
     </main>
-    <!-- Modal de producto -->
     <div id="catalog-modal" class="catalogo-modal" style="display:none;">
       <div class="catalogo-modal-bg"></div>
       <div class="catalogo-modal-content">
@@ -56,11 +47,9 @@
         <div id="catalog-modal-body"></div>
       </div>
     </div>
-    <!-- Botón flotante de carrito -->
     <button id="catalogo-cart-btn" class="catalogo-cart-float" onclick="showCartModal()">
       <i class="fas fa-shopping-cart"></i> <span id="catalogo-cart-count">0</span> Carrito
     </button>
-    <!-- Modal de carrito -->
     <div id="catalogo-cart-modal" class="catalogo-modal" style="display:none;">
       <div class="catalogo-modal-bg"></div>
       <div class="catalogo-modal-content">
@@ -76,7 +65,6 @@
       </div>
     </div>
 
-    <!-- Carrusel JS: mover al final del body -->
     <script>
     // Carrusel responsivo y filtro móvil
     (function() {
@@ -86,6 +74,9 @@
       const nextBtn = document.querySelector('.carousel-next');
       const dotsContainer = document.querySelector('.carousel-dots');
       let current = 0;
+      let intervalId; // Nueva variable para el ID del intervalo
+      const intervalTime = 5000; // Tiempo en milisegundos (5 segundos)
+
       function showSlide(idx) {
         slides.forEach((slide, i) => {
           if (i === idx) {
@@ -104,6 +95,25 @@
           });
         }
       }
+
+      function nextSlide() { // Nueva función para avanzar
+        current = (current + 1) % slides.length;
+        showSlide(current);
+      }
+
+      function startInterval() {
+        intervalId = setInterval(nextSlide, intervalTime);
+      }
+
+      function resetInterval() {
+        clearInterval(intervalId); // Limpia el intervalo existente
+        startInterval(); // Inicia uno nuevo
+      }
+
+      // Inicialización
+      showSlide(current);
+      startInterval(); // Inicia el carrusel automáticamente al cargar la página
+
       if (dotsContainer && dotsContainer.childElementCount === 0) {
         slides.forEach((_, i) => {
           const dot = document.createElement('span');
@@ -114,19 +124,25 @@
           dot.style.borderRadius = '50%';
           dot.style.background = i === 0 ? '#46a4a4' : '#ccc';
           dot.style.cursor = 'pointer';
-          dot.addEventListener('click', () => { current = i; showSlide(current); });
+          dot.addEventListener('click', () => {
+            current = i;
+            showSlide(current);
+            resetInterval(); // Reinicia el temporizador
+          });
           dotsContainer.appendChild(dot);
         });
       }
-      showSlide(current);
+
       if (prevBtn) prevBtn.addEventListener('click', function() {
         current = (current - 1 + slides.length) % slides.length;
         showSlide(current);
+        resetInterval(); // Reinicia el temporizador
       });
       if (nextBtn) nextBtn.addEventListener('click', function() {
-        current = (current + 1) % slides.length;
-        showSlide(current);
+        nextSlide();
+        resetInterval(); // Reinicia el temporizador
       });
+
       let startX = null;
       const wrapper = document.querySelector('.carousel-wrapper');
       if (wrapper) {
@@ -137,6 +153,7 @@
           if (endX - startX > 40) prevBtn && prevBtn.click();
           else if (startX - endX > 40) nextBtn && nextBtn.click();
           startX = null;
+          resetInterval(); // Reinicia el temporizador
         });
       }
       // Filtro móvil: mostrar select y ocultar botones en móvil
@@ -234,12 +251,8 @@
     /* --- CARRUSEL ANCHO COMPLETO --- */
     .catalogo-carousel {
       position: relative;
-      width: 100vw;
-      left: 50%;
-      right: 50%;
-      margin-left: -50vw;
-      margin-right: -50vw;
-      background: #fff;
+      width: 100%;
+      background: transparent;
       border-radius: 0;
       box-shadow: 0 4px 24px rgba(0,101,165,0.10);
       overflow: hidden;
@@ -249,20 +262,16 @@
       margin-bottom: 32px;
     }
     .carousel-wrapper {
-      width: 100vw;
+      width: 100%; /* Puede que necesites ajustar esto a 100% si sigue pasando del ancho en móvil */
       min-height: 180px;
       height: 420px;
       display: block;
       position: relative;
-      background: #fafdff;
-      left: 50%;
-      right: 50%;
-      margin-left: -50vw;
-      margin-right: -50vw;
-      max-width: none;
+      background: transparent; /* Cambiado a transparente */
+      max-width: none; /* Puede que necesites ajustar esto a 100% si sigue pasando del ancho en móvil */
     }
     .carousel-slide {
-      width: 100vw;
+      width: 100%; /* Cambiado de 100vw a 100% */
       height: 420px;
       display: none;
       align-items: center;
@@ -279,13 +288,13 @@
       z-index: 1;
     }
     .carousel-slide img {
-      width: 100vw;
-      height: 420px;
+      width: 100%; /* Cambiado de 100vw a 100% */
+      height: 420px; /* La altura se ajustará en los media queries */
       object-fit: cover;
       display: block;
       border-radius: 0;
-      background: #e3eaff;
-      max-width: none;
+      background: transparent; /* Cambiado a transparente */
+      max-width: none; /* Puede que necesites ajustar esto a 100% si sigue pasando del ancho en móvil */
     }
     .carousel-prev, .carousel-next {
       top: 50%;
