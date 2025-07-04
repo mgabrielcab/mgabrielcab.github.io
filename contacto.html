@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Grupo Ocampo</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="js/navbar.js" defer></script>
+</head>
+
+<body class="inner-page">
+
+    <header class="main-header">
+        <div class="header-content">
+            <a href="index.html" class="logo-link">
+                <img src="images/grupo-ocampo-logo.png" alt="Logo Grupo Ocampo" class="navbar-logo-img">
+            </a>
+            <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+                <span class="hamburger"></span>
+            </button>
+            <nav class="main-nav" aria-label="Navegación principal">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link"><span><i class="fas fa-home"></i> Inicio</span></a></li>
+                    <li><a href="nosotros.html" class="nav-link"><span><i class="fas fa-users"></i> Nosotros</span></a>
+                    </li>
+                    <li><a href="contacto.html" class="nav-link active"><span><i class="fas fa-envelope"></i>
+                                Contacto</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content-detail">
+        <section class="contact-section">
+            <h2 class="section-title">Contactanos</h2>
+            <p class="contact-intro">¿Tenés alguna consulta, sugerencia o querés realizar un pedido? Estamos para
+                ayudarte. Elegí la forma de contacto que más te convenga.</p>
+
+            <div class="contact-grid">
+                <div class="contact-info-card">
+                    <h3><i class="fas fa-phone-alt"></i> Teléfono</h3>
+                    <p>Para consultas generales o pedidos urgentes.</p>
+                    <a href="tel:+5492634XXXXXX" class="contact-link">+54 9 263 4XXXXXX</a>
+                </div>
+
+                <div class="contact-info-card">
+                    <h3><i class="fab fa-whatsapp"></i> WhatsApp</h3>
+                    <p>Envianos un mensaje para consultas rápidas o para coordinar pedidos.</p>
+                    <a href="https://wa.me/5492634XXXXXX" target="_blank" class="contact-link whatsapp-link">Enviar
+                        WhatsApp</a>
+                </div>
+
+                <div class="contact-info-card">
+                    <h3><i class="fas fa-envelope"></i> Correo Electrónico</h3>
+                    <p>Para consultas detalladas, presupuestos o colaboraciones.</p>
+                    <a href="mailto:contacto@grupoocampo.com.ar" class="contact-link">contacto@grupoocampo.com.ar</a>
+                </div>
+            </div>
+
+            <div class="contact-form-section">
+                <h3 class="section-subtitle">Envianos un Mensaje</h3>
+                <form action="#" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nombre y Apellido:</label>
+                        <input type="text" id="name" name="name" required aria-label="Tu nombre y apellido">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required aria-label="Tu correo electrónico">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Teléfono (opcional):</label>
+                        <input type="tel" id="phone" name="phone" aria-label="Tu número de teléfono">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Asunto:</label>
+                        <input type="text" id="subject" name="subject" required aria-label="Asunto de tu mensaje">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tu Mensaje:</label>
+                        <textarea id="message" name="message" rows="6" required
+                            aria-label="Escribe tu mensaje aquí"></textarea>
+                    </div>
+                    <button type="submit" class="btn primary-btn submit-btn">Enviar Mensaje</button>
+                </form>
+            </div>
+
+            <div class="business-hours">
+                <h3 class="section-subtitle">Horarios de Atención</h3>
+                <p>Lun-Vie: 9:00 a 18:00 hs</p>
+                <p>Sábados: 9:00 a 13:00 hs (Sólo pedidos de OCAMPO GAS)</p>
+                <p>Domingos y Feriados: Cerrado</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer beautiful-footer">
+        <div class="footer-content compact-footer">
+            <div class="footer-logo-block">
+                <img src="images/grupo-ocampo-logo.png" alt="Logo Grupo Ocampo" class="footer-logo-img">
+                <span class="footer-logo">Grupo Ocampo</span>
+            </div>
+            <div class="footer-addresses">
+                <span class="footer-address"><i class="fas fa-map-marker-alt"></i> Ruta 7 Km 1004, San Martín, Mendoza
+                    <strong>(Central)</strong></span>
+                <span class="footer-dot">·</span>
+                <span class="footer-address"><i class="fas fa-map-marker-alt"></i> Pasco 420, San Martín, Mendoza
+                    <strong>(Depósito)</strong></span>
+                <span class="footer-dot">·</span>
+                <span class="footer-address"><i class="fas fa-map-marker-alt"></i> Ruta 178 Km 6.6, Pergamino, Buenos
+                    Aires <strong>(Sucursal)</strong></span>
+            </div>
+            <div class="footer-contact-social">
+                <span class="footer-contact"><i class="fas fa-phone"></i> <a href="tel:+5492634567890">+54 9 2634 567890</a>
+                </span>
+                <span class="footer-dot">·</span>
+                <span class="footer-contact"><i class="fab fa-whatsapp"></i> <a
+                    href="https://wa.me/5492634567890" target="_blank">WhatsApp</a></span>
+                <span class="footer-dot">·</span>
+                <span class="footer-contact"><i class="fas fa-envelope"></i> <a href="mailto:info@grupoocampo.com">info@grupoocampo.com</a>
+                </span>
+                <span class="footer-dot">·</span>
+                <span class="footer-social-links">
+                    <a href="https://facebook.com/grupoocampo" target="_blank" aria-label="Facebook"><i
+                        class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/grupoocampo" target="_blank" aria-label="Instagram"><i
+                        class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com/company/grupoocampo" target="_blank" aria-label="LinkedIn"><i
+                        class="fab fa-linkedin-in"></i></a>
+                </span>
+            </div>
+        </div>
+        <div class="footer-bottom compact-footer-bottom">
+            <p>&copy; <span id="current-year"></span> Grupo Ocampo. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promoción de Invierno Distrogaz - Grupo Ocampo</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="js/navbar.js" defer></script>
+</head>
+<body class="inner-page">
+    <header class="main-header">
+        <div class="header-content">
+            <a href="index.html" class="logo-link">
+                <img src="images/grupo-ocampo-logo.png" alt="Logo Grupo Ocampo" class="navbar-logo-img">
+            </a>
+            <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+                <span class="hamburger"></span>
+            </button>
+            <nav class="main-nav" aria-label="Navegación principal">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link"><span><i class="fas fa-home"></i> Inicio</span></a></li>
+                    <li><a href="nosotros.html" class="nav-link"><span><i class="fas fa-users"></i> Nosotros</span></a></li>
+                    <li><a href="contacto.html" class="nav-link"><span><i class="fas fa-envelope"></i> Contacto</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content-detail">
+        <section class="promo-detail-section distrogaz-color">
+            <a href="index.html" class="back-link">&larr; Volver al Inicio de Grupo Ocampo</a>
+            <h2>¡Gran Promoción de Invierno en Distrogaz!</h2>
+            <img src="https://via.placeholder.com/800x400/FF6600/000000?text=Promo+Distrogaz" alt="Banner Promoción Distrogaz" class="detail-image">
+            <p class="intro-text">Prepárate para el frío con las mejores ofertas en gas envasado. En Distrogaz, pensamos en tu comodidad y economía.</p>
+
+            <h3>Detalles de la Promoción:</h3>
+            <ul>
+                <li><strong>Descuento del 10%</strong> en la recarga de cilindros de 10kg y 15kg.</li>
+                <li><strong>Envío gratuito</strong> para pedidos realizados a través de nuestro sitio web o por WhatsApp.</li>
+                <li><strong>Válido para todos los clientes</strong> de San Martín y zonas aledañas.</li>
+                <li>Promoción válida desde el 1 de Julio hasta el 31 de Agosto de 2025.</li>
+                <li>No acumulable con otras promociones.</li>
+            </ul>
+
+            <h3>¿Cómo aprovecharla?</h3>
+            <ol>
+                <li>Ingresá a nuestra sección de <a href="distrogaz.html">Distrogaz</a>.</li>
+                <li>Seleccioná el cilindro que necesites.</li>
+                <li>El descuento se aplicará automáticamente al finalizar tu pedido.</li>
+                <li>También puedes contactarnos por teléfono o WhatsApp mencionando la promoción "Invierno Ocampo".</li>
+            </ol>
+
+            <p class="call-to-action-detail">¡No dejes pasar esta oportunidad! Asegura tu confort este invierno.</p>
+            <a href="distrogaz.html" class="btn primary-btn distrogaz-btn">PEDIR GAS AHORA</a>
+        </section>
+    </main>
+
+    <footer class="main-footer beautiful-footer">
+            <div class="footer-content compact-footer">
+                <div class="footer-logo-block">
+                    <img src="images/grupo-ocampo-logo.png" alt="Logo Grupo Ocampo" class="footer-logo-img">
+                    <span class="footer-logo">Grupo Ocampo</span>
+                </div>
+                <div class="footer-addresses">
+                    <span class="footer-address"><i class="fas fa-map-marker-alt"></i> Ruta 7 Km 1004, San Martín, Mendoza <strong>(Central)</strong></span>
+                    <span class="footer-dot">·</span>
+                    <span class="footer-address"><i class="fas fa-map-marker-alt"></i> Pasco 420, San Martín, Mendoza <strong>(Depósito)</strong></span>
+                    <span class="footer-dot">·</span>
+                    <span class="footer-address"><i class="fas fa-map-marker-alt"></i> Ruta 178 Km 6.6, Pergamino, Buenos Aires <strong>(Sucursal)</strong></span>
+                </div>
+                <div class="footer-contact-social">
+                    <span class="footer-contact"><i class="fas fa-phone"></i> <a href="tel:+5492634567890">+54 9 2634 567890</a></span>
+                    <span class="footer-dot">·</span>
+                    <span class="footer-contact"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5492634567890" target="_blank">WhatsApp</a></span>
+                    <span class="footer-dot">·</span>
+                    <span class="footer-contact"><i class="fas fa-envelope"></i> <a href="mailto:info@grupoocampo.com">info@grupoocampo.com</a></span>
+                    <span class="footer-dot">·</span>
+                    <span class="footer-social-links">
+                        <a href="https://facebook.com/grupoocampo" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/grupoocampo" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/company/grupoocampo" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </span>
+                </div>
+            </div>
+            <div class="footer-bottom compact-footer-bottom">
+                <p>&copy; <span id="current-year"></span> Grupo Ocampo. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+        <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>
+    </body>
+</html>

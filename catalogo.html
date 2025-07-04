@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Productos | Ocampo Bimbo</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/catalogo.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="js/products.js" defer></script>
+    <script src="js/catalogo.js" defer></script>
+</head>
+<body class="catalogo-bimbo">
+    <header class="catalogo-header">
+        <img src="images/bimbo-logo.png" alt="Ocampo Bimbo" class="logo">
+        <h1>Catálogo de Productos Ocampo Bimbo</h1>
+        <p>Descubrí la variedad de productos Bimbo y marcas asociadas, siempre frescos y cerca de vos.</p>
+    </header>
+    <main class="catalogo-main">
+        <div class="catalogo-filtros" id="catalog-category-buttons">
+            <!-- Botones de categorías se generan por JS -->
+        </div>
+        <div id="catalog-grid"></div>
+    </main>
+    <!-- Modal para detalles de producto -->
+    <div id="catalog-modal" class="catalogo-modal" style="display:none;">
+        <div class="catalogo-modal-bg"></div>
+        <div class="catalogo-modal-content">
+            <button class="catalogo-modal-close" aria-label="Cerrar">&times;</button>
+            <div id="catalog-modal-body"></div>
+        </div>
+    </div>
+</body>
+</html>
