@@ -166,7 +166,7 @@ function renderCartList() {
         whatsappBtn.onclick = function() {
             if (!cart.length) return;
             const msg = cart.map(item => `• ${item.name} (SKU: ${item.sku}) x ${item.cantidad}`).join('%0A');
-            const url = `https://wa.me/5492634754668?text=Hola!%20Quiero%20hacer%20un%20pedido:%0A${msg}`;
+            const url = `https://wa.me/5492635000318?text=Hola!%20Quiero%20hacer%20un%20pedido:%0A${msg}`;
             window.open(url, '_blank');
         };
     }
