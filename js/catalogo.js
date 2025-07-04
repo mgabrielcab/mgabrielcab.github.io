@@ -14,8 +14,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const bimboProducts = products.filter(p => bimboBrands.includes(p.brand));
     // Categorías únicas
     const categories = Array.from(new Set(bimboProducts.map(p => p.category))).sort();
-    // Crear botones de categorías
     const categoryButtonsContainer = document.getElementById('catalog-category-buttons');
+    const categorySelect = document.getElementById('catalog-category-select');
+    // Crear botones de categorías y llenar el select móvil
     function renderCategoryButtons(categories) {
         categoryButtonsContainer.innerHTML = '';
         // Botón 'Todas'
@@ -24,12 +25,27 @@ document.addEventListener('DOMContentLoaded', function () {
         allBtn.textContent = 'Todas';
         allBtn.dataset.category = '';
         categoryButtonsContainer.appendChild(allBtn);
+        // Llenar select móvil
+        if (categorySelect) {
+            categorySelect.innerHTML = '';
+            const allOpt = document.createElement('option');
+            allOpt.value = '';
+            allOpt.textContent = 'Todas';
+            categorySelect.appendChild(allOpt);
+        }
         categories.forEach(cat => {
             const btn = document.createElement('button');
             btn.className = 'catalogo-cat-btn';
             btn.textContent = cat;
             btn.dataset.category = cat;
             categoryButtonsContainer.appendChild(btn);
+            // Agregar opción al select móvil
+            if (categorySelect) {
+                const opt = document.createElement('option');
+                opt.value = cat;
+                opt.textContent = cat;
+                categorySelect.appendChild(opt);
+            }
         });
     }
     renderCategoryButtons(categories);
@@ -152,17 +168,36 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         return matrix[b.length][a.length];
     }
-    // Evento de filtrado por botón
-    categoryButtonsContainer.addEventListener('click', function(e) {
-        if (e.target.tagName === 'BUTTON') {
-            // Quitar 'active' de todos
-            categoryButtonsContainer.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
-            e.target.classList.add('active');
-            const category = e.target.dataset.category;
-            const filtered = category ? bimboProducts.filter(product => product.category === category) : bimboProducts;
-            renderCatalog(filtered);
+    // Filtrado por categoría (botones y select móvil)
+    let currentCategory = '';
+    function filterByCategory(cat) {
+        currentCategory = cat;
+        // Actualizar botones
+        if (categoryButtonsContainer) {
+            categoryButtonsContainer.querySelectorAll('button').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.category === cat);
+            });
         }
-    });
+        // Actualizar select móvil
+        if (categorySelect) categorySelect.value = cat;
+        // Filtrar productos
+        const filtered = cat ? bimboProducts.filter(p => p.category === cat) : bimboProducts;
+        renderCatalog(filtered);
+    }
+    // Evento de filtrado por botón
+    if (categoryButtonsContainer) {
+        categoryButtonsContainer.addEventListener('click', function(e) {
+            if (e.target.tagName === 'BUTTON') {
+                filterByCategory(e.target.dataset.category);
+            }
+        });
+    }
+    // Evento de filtrado por select móvil
+    if (categorySelect) {
+        categorySelect.addEventListener('change', function() {
+            filterByCategory(this.value);
+        });
+    }
     function addImageFallback() {
       document.querySelectorAll('.catalogo-img').forEach(img => {
         img.onerror = function() {
@@ -390,6 +425,8 @@ window.removeFromCart = function(idx) {
     renderCartButton();
     // Al cargar la página, cargar carrito guardado
     loadCart();
+    // Sincronizar filtro al cargar
+    filterByCategory('');
 
     // Modo oscuro automático si el usuario lo prefiere
     // (Deshabilitado por solicitud del usuario)

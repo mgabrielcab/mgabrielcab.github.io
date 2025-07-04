@@ -13,24 +13,310 @@
     <script src="js/catalogo.js" defer></script>
 </head>
 <body class="catalogo-bimbo">
-    <header class="catalogo-header">
-        <img src="images/bimbo-logo.png" alt="Ocampo Bimbo" class="logo">
-        <h1>Catálogo de Productos Ocampo Bimbo</h1>
-        <p>Descubrí la variedad de productos Bimbo y marcas asociadas, siempre frescos y cerca de vos.</p>
-    </header>
+    <nav class="catalogo-navbar" style="background: #fff; color: var(--bimbo-azul); height: 100px; display: flex; align-items: center; justify-content: space-between; padding: 0 38px 0 28px; box-shadow: 0 2px 12px rgba(0,101,165,0.08); border-bottom: 2px solid var(--bimbo-celeste);">
+        <div style="display: flex; align-items: center; gap: 44px; min-width: 0;">
+            <a href="index.html" style="display: flex; align-items: center; text-decoration: none; min-width: 0;">
+                <img src="images/grupo-ocampo.png" alt="Grupo Ocampo" class="catalogo-navbar-logo">
+            </a>
+            <span style="display: inline-block; width: 3px; height: 60px; background: var(--bimbo-celeste); margin: 0 24px;"></span>
+            <img src="images/ocampo-bimbo-logo.png" alt="Ocampo Bimbo" class="catalogo-navbar-logo">
+        </div>
+        <a href="index.html" class="catalogo-navbar-btn">Volver al Inicio</a>
+    </nav>
+    <!--
+      Carrusel de imágenes sugerido para la portada del catálogo.
+      Tamaño recomendado de imágenes: 1400 x 420 px (formato horizontal, JPG o PNG, fondo transparente o institucional).
+      Para móviles, se recomienda también una versión 700 x 350 px o imágenes que sean legibles a 400 px de ancho.
+      Las imágenes deben ser livianas (<300 KB) y de buena calidad.
+    -->
+    <section class="catalogo-carousel">
+      <div class="carousel-wrapper">
+        <div class="carousel-slide"><img src="images/carrusel/banner-1.png" alt="Promoción 1" style="width:100%;height:auto;"></div>
+        <div class="carousel-slide"><img src="images/carrusel/banner-2.png" alt="Promoción 2" style="width:100%;height:auto;"></div>
+      </div>
+      <button class="carousel-prev" aria-label="Anterior" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.25);color:#fff;border:none;border-radius:50%;width:38px;height:38px;font-size:1.5em;cursor:pointer;z-index:2;">&#10094;</button>
+      <button class="carousel-next" aria-label="Siguiente" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.25);color:#fff;border:none;border-radius:50%;width:38px;height:38px;font-size:1.5em;cursor:pointer;z-index:2;">&#10095;</button>
+      <div class="carousel-dots" style="text-align:center;margin-top:10px;"></div>
+    </section>
+
+    <!-- Estructura del catálogo de productos -->
     <main class="catalogo-main">
-        <div class="catalogo-filtros" id="catalog-category-buttons">
-            <!-- Botones de categorías se generan por JS -->
-        </div>
-        <div id="catalog-grid"></div>
+      <div id="catalog-category-buttons" class="catalogo-filtros"></div>
+      <!-- Filtro alternativo para móvil -->
+      <div class="catalogo-filtros-mobile" style="display:none; margin-bottom:1em;">
+        <select id="catalog-category-select" style="width:100%;padding:10px 16px;border-radius:50px;border:1px solid #bbb;font-size:1em;min-width:180px;"></select>
+      </div>
+      <div id="catalog-grid"></div>
     </main>
-    <!-- Modal para detalles de producto -->
+    <!-- Modal de producto -->
     <div id="catalog-modal" class="catalogo-modal" style="display:none;">
-        <div class="catalogo-modal-bg"></div>
-        <div class="catalogo-modal-content">
-            <button class="catalogo-modal-close" aria-label="Cerrar">&times;</button>
-            <div id="catalog-modal-body"></div>
-        </div>
+      <div class="catalogo-modal-bg"></div>
+      <div class="catalogo-modal-content">
+        <button class="catalogo-modal-close" aria-label="Cerrar">&times;</button>
+        <div id="catalog-modal-body"></div>
+      </div>
     </div>
+    <!-- Botón flotante de carrito -->
+    <button id="catalogo-cart-btn" class="catalogo-cart-float" onclick="showCartModal()">
+      <i class="fas fa-shopping-cart"></i> <span id="catalogo-cart-count">0</span> Carrito
+    </button>
+    <!-- Modal de carrito -->
+    <div id="catalogo-cart-modal" class="catalogo-modal" style="display:none;">
+      <div class="catalogo-modal-bg"></div>
+      <div class="catalogo-modal-content">
+        <div class="catalogo-modal-header">
+          <span><i class="fas fa-shopping-cart"></i> Carrito (<span id="cart-total-items">0</span>)</span>
+          <button class="catalogo-modal-close" aria-label="Cerrar" onclick="closeCartModal()">&times;</button>
+        </div>
+        <div id="catalogo-cart-list"></div>
+        <div class="catalogo-modal-footer" style="padding:1em 1.5em 1.2em 1.5em;display:flex;gap:12px;justify-content:flex-end;align-items:center;">
+          <button id="catalogo-cart-vaciar" class="catalogo-cart-vaciar" style="background:#d32f2f;color:#fff;font-weight:700;padding:8px 22px;border:none;border-radius:7px;">Vaciar carrito</button>
+          <button id="catalogo-cart-whatsapp" class="catalogo-cart-btn" style="background:#25d366;color:#fff;font-weight:700;padding:8px 22px;border:none;border-radius:7px;">Enviar pedido por WhatsApp</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carrusel JS: mover al final del body -->
+    <script>
+    // Carrusel responsivo y filtro móvil
+    (function() {
+      // Carrusel
+      const slides = document.querySelectorAll('.carousel-slide');
+      const prevBtn = document.querySelector('.carousel-prev');
+      const nextBtn = document.querySelector('.carousel-next');
+      const dotsContainer = document.querySelector('.carousel-dots');
+      let current = 0;
+      function showSlide(idx) {
+        slides.forEach((slide, i) => {
+          if (i === idx) {
+            slide.classList.add('active');
+            slide.style.display = 'flex';
+            slide.style.opacity = '1';
+          } else {
+            slide.classList.remove('active');
+            slide.style.display = 'none';
+            slide.style.opacity = '0';
+          }
+        });
+        if (dotsContainer) {
+          dotsContainer.querySelectorAll('span').forEach((dot, i) => {
+            dot.style.background = i === idx ? '#46a4a4' : '#ccc';
+          });
+        }
+      }
+      if (dotsContainer && dotsContainer.childElementCount === 0) {
+        slides.forEach((_, i) => {
+          const dot = document.createElement('span');
+          dot.style.display = 'inline-block';
+          dot.style.width = '12px';
+          dot.style.height = '12px';
+          dot.style.margin = '0 4px';
+          dot.style.borderRadius = '50%';
+          dot.style.background = i === 0 ? '#46a4a4' : '#ccc';
+          dot.style.cursor = 'pointer';
+          dot.addEventListener('click', () => { current = i; showSlide(current); });
+          dotsContainer.appendChild(dot);
+        });
+      }
+      showSlide(current);
+      if (prevBtn) prevBtn.addEventListener('click', function() {
+        current = (current - 1 + slides.length) % slides.length;
+        showSlide(current);
+      });
+      if (nextBtn) nextBtn.addEventListener('click', function() {
+        current = (current + 1) % slides.length;
+        showSlide(current);
+      });
+      let startX = null;
+      const wrapper = document.querySelector('.carousel-wrapper');
+      if (wrapper) {
+        wrapper.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
+        wrapper.addEventListener('touchend', e => {
+          if (startX === null) return;
+          let endX = e.changedTouches[0].clientX;
+          if (endX - startX > 40) prevBtn && prevBtn.click();
+          else if (startX - endX > 40) nextBtn && nextBtn.click();
+          startX = null;
+        });
+      }
+      // Filtro móvil: mostrar select y ocultar botones en móvil
+      function toggleCategoryFilter() {
+        const isMobile = window.innerWidth <= 700;
+        document.querySelector('.catalogo-filtros').style.display = isMobile ? 'none' : 'flex';
+        document.querySelector('.catalogo-filtros-mobile').style.display = isMobile ? 'block' : 'none';
+      }
+      window.addEventListener('resize', toggleCategoryFilter);
+      document.addEventListener('DOMContentLoaded', toggleCategoryFilter);
+    })();
+    </script>
+    <style>
+    @media (max-width: 900px) {
+      .catalogo-navbar {
+        padding: 0 10px 0 10px !important;
+        height: 70px !important;
+      }
+      .catalogo-navbar img {
+        height: 40px !important;
+        max-width: 120px !important;
+      }
+      .catalogo-navbar span {
+        height: 28px !important;
+        margin: 0 8px !important;
+        width: 2px !important;
+      }
+      .catalogo-navbar-btn {
+        font-size: 1em !important;
+        padding: 10px 18px !important;
+        border-radius: 16px !important;
+      }
+    }
+    @media (max-width: 700px) {
+      .catalogo-navbar {
+        flex-direction: column;
+        height: auto !important;
+        padding: 8px 2vw 8px 2vw !important;
+      }
+      .catalogo-navbar > div {
+        flex-direction: row !important;
+        gap: 10px !important;
+        align-items: center !important;
+        width: 100%;
+        justify-content: center;
+      }
+      .catalogo-navbar-btn {
+        width: 100%;
+        margin-top: 8px;
+        text-align: center;
+        font-size: 0.98em !important;
+        padding: 10px 0 !important;
+        border-radius: 12px !important;
+      }
+      .catalogo-navbar img {
+        height: 58px !important;
+        max-width: 144px !important;
+      }
+      .catalogo-navbar span {
+        height: 18px !important;
+        margin: 0 4px !important;
+        width: 1.5px !important;
+      }
+      .catalogo-filtros {
+        display: none !important;
+      }
+      .catalogo-filtros-mobile {
+        display: block !important;
+      }
+    }
+    @media (max-width: 480px) {
+      .catalogo-navbar img {
+        height: 40px !important;
+        max-width: 96px !important;
+      }
+      .catalogo-navbar span {
+        font-size: 0.98em !important;
+      }
+      .catalogo-navbar-btn {
+        font-size: 0.93em !important;
+        padding: 8px 0 !important;
+      }
+    }
+    /* Carrusel botones más chicos en móvil */
+    @media (max-width: 700px) {
+      .carousel-prev, .carousel-next {
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 1.1em !important;
+      }
+      .carousel-dots {
+        bottom: 8px !important;
+      }
+    }
+    /* --- CARRUSEL ANCHO COMPLETO --- */
+    .catalogo-carousel {
+      position: relative;
+      width: 100vw;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      background: #fff;
+      border-radius: 0;
+      box-shadow: 0 4px 24px rgba(0,101,165,0.10);
+      overflow: hidden;
+      min-height: 180px;
+      max-width: none;
+      margin-top: 0;
+      margin-bottom: 32px;
+    }
+    .carousel-wrapper {
+      width: 100vw;
+      min-height: 180px;
+      height: 420px;
+      display: block;
+      position: relative;
+      background: #fafdff;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      max-width: none;
+    }
+    .carousel-slide {
+      width: 100vw;
+      height: 420px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      left: 0; top: 0;
+      opacity: 0;
+      z-index: 0;
+      transition: opacity 0.3s;
+    }
+    .carousel-slide.active {
+      display: flex;
+      opacity: 1;
+      z-index: 1;
+    }
+    .carousel-slide img {
+      width: 100vw;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+      border-radius: 0;
+      background: #e3eaff;
+      max-width: none;
+    }
+    .carousel-prev, .carousel-next {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .carousel-dots {
+      position: absolute;
+      bottom: 18px;
+      left: 0; right: 0;
+      text-align: center;
+      z-index: 3;
+    }
+    @media (max-width: 900px) {
+      .carousel-wrapper, .carousel-slide, .carousel-slide img {
+        height: 280px;
+      }
+    }
+    @media (max-width: 700px) {
+      .catalogo-carousel {
+        border-radius: 0;
+        margin: 0 0 18px 0;
+      }
+      .carousel-wrapper, .carousel-slide, .carousel-slide img {
+        height: 180px;
+      }
+    }
+    @media (max-width: 480px) {
+      .carousel-wrapper, .carousel-slide, .carousel-slide img {
+        height: 120px;
+      }
+    }
+    </style>
 </body>
 </html>

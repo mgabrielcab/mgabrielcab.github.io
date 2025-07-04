@@ -11,16 +11,13 @@
     <script src="js/navbar.js" defer></script>
 </head>
 <body class="inner-page">
-    <header class="main-header">
-        <div class="header-content">
+    <header class="main-header new-navbar">
+        <div class="header-content new-navbar-content">
             <a href="index.html" class="logo-link">
-                <img src="images/grupo-ocampo-logo.png" alt="Logo Grupo Ocampo" class="navbar-logo-img">
+                <img src="images/grupo-ocampo-blanco.png" alt="Logo Grupo Ocampo" class="navbar-logo-img new-navbar-logo">
             </a>
-            <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
-                <span class="hamburger"></span>
-            </button>
-            <nav class="main-nav" aria-label="Navegación principal">
-                <ul class="nav-list">
+            <nav class="main-nav new-navbar-nav" aria-label="Navegación principal">
+                <ul class="nav-list new-navbar-list">
                     <li><a href="index.html" class="nav-link"><span><i class="fas fa-home"></i> Inicio</span></a></li>
                     <li><a href="nosotros.html" class="nav-link"><span><i class="fas fa-users"></i> Nosotros</span></a></li>
                     <li><a href="contacto.html" class="nav-link"><span><i class="fas fa-envelope"></i> Contacto</span></a></li>
@@ -52,35 +49,40 @@
         </section>
     </main>
 
-    <footer class="main-footer beautiful-footer">
-        <div class="footer-content compact-footer">
-            <div class="footer-logo-block">
-                <img src="images/grupo-ocampo-logo.png" alt="Logo Grupo Ocampo" class="footer-logo-img">
-                <span class="footer-logo">Grupo Ocampo</span>
+    <footer class="main-footer redesigned-footer">
+        <div class="footer-content redesigned-footer-content" style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: center; gap: 32px; padding: 32px 0 0 0;">
+            <div class="footer-logo-block" style="flex: 1 1 220px; display: flex; justify-content: center; align-items: center; min-width: 180px;">
+                <img src="images/grupo-ocampo-blanco.png" alt="Logo Grupo Ocampo" class="footer-logo-img" style="display: block; max-width: 260px; width: 100%; height: auto; object-fit: contain; margin: 0 auto; background: none; border: none; border-radius: 0; box-shadow: none;">
             </div>
-            <div class="footer-addresses">
-                <span class="footer-address"><i class="fas fa-map-marker-alt"></i> Ruta 7 Km 1004, San Martín, Mendoza <strong>(Central)</strong></span>
-                <span class="footer-dot">·</span>
-                <span class="footer-address"><i class="fas fa-map-marker-alt"></i> Pasco 420, San Martín, Mendoza <strong>(Depósito)</strong></span>
-                <span class="footer-dot">·</span>
-                <span class="footer-address"><i class="fas fa-map-marker-alt"></i> Ruta 178 Km 6.6, Pergamino, Buenos Aires <strong>(Sucursal)</strong></span>
-            </div>
-            <div class="footer-contact-social">
-                <span class="footer-contact"><i class="fas fa-phone"></i> <a href="tel:+5492634567890">+54 9 2634 567890</a></span>
-                <span class="footer-dot">·</span>
-                <span class="footer-contact"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5492634567890" target="_blank">WhatsApp</a></span>
-                <span class="footer-dot">·</span>
-                <span class="footer-contact"><i class="fas fa-envelope"></i> <a href="mailto:info@grupoocampo.com">info@grupoocampo.com</a></span>
-                <span class="footer-dot">·</span>
-                <span class="footer-social-links">
-                    <a href="https://facebook.com/grupoocampo" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://instagram.com/grupoocampo" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://linkedin.com/company/grupoocampo" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                </span>
+            <div class="footer-info-blocks" style="flex: 2 1 400px; display: flex; flex-wrap: wrap; justify-content: center; gap: 32px;">
+                <div class="footer-info-section">
+                    <h4 class="footer-section-title">Contacto</h4>
+                    <ul class="footer-contact-list">
+                        <li><i class="fas fa-phone"></i> <a href="tel:+5492634567890">+54 9 2634 567890</a></li>
+                        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5492634567890" target="_blank">WhatsApp</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@grupoocampo.com">info@grupoocampo.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer-info-section">
+                    <h4 class="footer-section-title">Sucursales</h4>
+                    <ul class="footer-address-list">
+                        <li><i class="fas fa-map-marker-alt"></i> Ruta 7 Km 1004, San Martín, Mendoza <strong>(Central)</strong></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Pasco 420, San Martín, Mendoza <strong>(Depósito)</strong></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Ruta 178 Km 6.6, Pergamino, Buenos Aires <strong>(Sucursal)</strong></li>
+                    </ul>
+                </div>
+                <div class="footer-info-section">
+                    <h4 class="footer-section-title">Redes Sociales</h4>
+                    <div class="footer-social-links">
+                        <a href="https://facebook.com/grupoocampo" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/grupoocampo" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/company/grupoocampo" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="footer-bottom compact-footer-bottom">
-            <p>&copy; <span id="current-year"></span> Grupo Ocampo. Todos los derechos reservados.</p>
+        <div class="footer-bottom redesigned-footer-bottom" style="text-align: center; margin-top: 16px; padding-bottom: 16px;">
+            <p style="color: #fff; font-size: 1em; letter-spacing: 1px;">&copy; <span id="current-year"></span> Grupo Ocampo. Todos los derechos reservados.</p>
         </div>
     </footer>
     <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>

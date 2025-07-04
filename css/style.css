@@ -178,19 +178,30 @@ a:hover {
 
 /* Estilos para la imagen del logo en la navbar */
 .navbar-logo-img {
-    height: 54px;
+    height: 100px;
     width: auto;
+    max-width: 320px;
     display: block;
-    margin: 0 0.5em 0 0;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-   
-    padding: 2px 8px;
+    margin: 0 1.2em 0 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: none;
+    padding: 0;
+    outline: none;
+    filter: none;
+    border: none;
     transition: box-shadow 0.2s, transform 0.2s;
 }
 .logo-link:hover .navbar-logo-img {
     box-shadow: 0 4px 16px rgba(0,0,0,0.18);
     transform: scale(1.04) rotate(-2deg);
+}
+@media (max-width: 600px) {
+    .navbar-logo-img {
+        height: 60px;
+        max-width: 180px;
+        margin-right: 0.5em;
+    }
 }
 
 /* Responsive */
@@ -329,32 +340,36 @@ a:hover {
 }
 
 .service-card.ocampo-bimbo {
-    background-color: var(--color-ocampo-bimbo-azul); /* Fondo azul */
+    background-color: var(--color-ocampo-bimbo-blanco) !important;
 }
 
 .service-card.ocampo-bimbo h2,
 .service-card.ocampo-bimbo p {
-    color: var(--color-ocampo-bimbo-blanco); /* Texto blanco */
+    color: var(--color-ocampo-bimbo-azul) !important;
 }
 
 .service-card.ocampo-bimbo .btn {
     background-color: var(--color-ocampo-bimbo-blanco);
     color: var(--color-ocampo-bimbo-azul);
-    border: 2px solid var(--color-ocampo-bimbo-blanco);
+    border: 2px solid var(--color-ocampo-bimbo-azul);
 }
 
 .service-card.ocampo-bimbo .btn:hover {
-    background-color: var(--color-button-bimbo-hover);
+    background-color: var(--color-ocampo-bimbo-azul);
     color: var(--color-ocampo-bimbo-blanco);
-    border-color: var(--color-button-bimbo-hover);
+    border-color: var(--color-ocampo-bimbo-azul);
 }
 
 .service-image {
-    max-width: 70%; /* Las imágenes no deben ser demasiado grandes */
-    height: auto;
-    border-radius: 5px;
+    width: 280px; /* Tamaño fijo para todas las imágenes de servicios */
+    height: 200px;
+    object-fit: cover; /* Recorta y rellena el espacio sin deformar */
+    border-radius: 0;
     margin-bottom: 1.5em;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sutil sombra en la imagen */
+    box-shadow: none;
+    display: block;
+    background: none;
+    padding: 0;
 }
 
 .service-card h2 {
@@ -522,17 +537,21 @@ a:hover {
 }
 
 .footer-logo-img {
-    width: 120px;
-    height: auto;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    background: none !important;
-    margin-right: 0.5em;
     display: block;
-    padding: 0 !important;
-    outline: none !important;
-    filter: none !important;
-    border: none !important;
+    margin: 0 auto 18px auto;
+    max-width: 260px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+    filter: none;
+}
+@media (max-width: 600px) {
+    .footer-logo-img {
+        max-width: 150px;
+    }
 }
 
 .footer-logo {
@@ -1076,6 +1095,8 @@ a:hover {
     display: flex;
     align-items: center;
     gap: 12px;
+    text-align: center;
+    padding-bottom: 10px;
 }
 .footer-logo-img {
     width: 54px;
@@ -1285,5 +1306,123 @@ a:hover {
     }
     .catalog-card {
         min-height: 340px;
+    }
+}
+
+/* Aplico object-fit: contain y fondo blanco solo al logo de Distrogaz para que no se recorte y se vea completo en su tarjeta */
+.service-card.distrogaz .service-image {
+    object-fit: contain;
+    background: none;
+}
+
+/* Nueva Navbar Estilo 2023 */
+.new-navbar {
+    background: #fff;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0;
+    border-bottom: 2px solid #eee;
+}
+.new-navbar-content {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    height: 110px;
+    position: relative;
+}
+.new-navbar-logo {
+    height: 180px;
+    width: auto;
+    max-width: 600px;
+    display: block;
+    margin: 0 2.5em 0 0;
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    outline: none;
+    filter: none;
+    border: none;
+}
+@media (max-width: 900px) {
+    .new-navbar-logo {
+        height: 110px;
+        max-width: 320px;
+        margin: 0 0 10px 0;
+    }
+}
+@media (max-width: 600px) {
+    .new-navbar-logo {
+        height: 70px;
+        max-width: 180px;
+        margin: 0 0 8px 0;
+    }
+}
+.new-navbar-nav {
+    display: flex;
+    align-items: center;
+}
+.new-navbar-list {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.new-navbar-list .nav-link {
+    color: #222;
+    font-size: 1.25em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 12px 28px;
+    border-radius: 30px;
+    background: none;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.new-navbar-list .nav-link span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.new-navbar-list .nav-link i {
+    font-size: 1.2em;
+    opacity: 0.85;
+}
+.new-navbar-list .nav-link.active,
+.new-navbar-list .nav-link:hover {
+    background: #007BFF;
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(0,123,255,0.10);
+}
+.new-navbar-list .nav-link.active i,
+.new-navbar-list .nav-link:hover i {
+    color: #fff;
+}
+@media (max-width: 900px) {
+    .new-navbar-content {
+        flex-direction: column;
+        height: auto;
+        padding: 12px 8px;
+    }
+    .new-navbar-logo {
+        height: 60px;
+        max-width: 180px;
+        margin: 0 0 10px 0;
+    }
+    .new-navbar-list {
+        gap: 18px;
+    }
+    .new-navbar-list .nav-link {
+        font-size: 1em;
+        padding: 10px 16px;
     }
 }
