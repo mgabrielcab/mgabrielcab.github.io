@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcelo Gabriel Cabaña | Portfolio Profesional</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Cambiar modo de color">
+        <i data-lucide="moon" id="theme-icon"></i>
+    </button>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir navegación">
+        <i data-lucide="menu"></i>
+    </button>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-wrapper">
+            
+            <div class="profile-section">
+                <div class="avatar-wrapper">
+                    <img src="images/perfil.jpeg" alt="Marcelo Gabriel Cabaña" class="avatar-img" onerror="this.style.display='none'; document.getElementById('avatar-fallback').style.display='flex';">
+                    <div id="avatar-fallback" class="avatar-fallback">MC</div>
+                </div>
+                <h1 class="profile-name">Marcelo Gabriel Cabaña</h1>
+                <p class="profile-tagline">Jefe de Administración y Operaciones</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#sobre-mi" class="nav-item active"><i data-lucide="user-2"></i>Sobre Mí</a>
+                <a href="#experiencia" class="nav-item"><i data-lucide="layers"></i>Experiencia</a>
+                <a href="#aptitudes" class="nav-item"><i data-lucide="check-square"></i>Aptitudes</a>
+                <a href="#educacion" class="nav-item"><i data-lucide="graduation-cap"></i>Educación</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="info-link">
+                    <i data-lucide="map-pin"></i>
+                    <span>Rivadavia, Mendoza</span>
+                </div>
+                <div class="info-link">
+                    <i data-lucide="mail"></i>
+                    <a href="mailto:mgabrielcab@gmail.com">mgabrielcab@gmail.com</a>
+                </div>
+                <div class="info-link">
+                    <i data-lucide="phone"></i>
+                    <span>2634754668</span>
+                </div>
+            </div>
+
+        </div>
+    </aside>
+
+    <main class="main-layout">
+        
+        <section class="hero-cover">
+            <div class="tech-grid-overlay"></div>
+            <div class="hero-content">
+                <span class="hero-badge">Perfil Generalista & Confiable</span>
+                <h2 class="hero-title">Organización Estratégica y Control Operativo</h2>
+                <p class="hero-subtitle">Gestión integral de recursos, liderazgo de equipos y optimización de resultados en entornos corporativos y PyMEs.</p>
+            </div>
+        </section>
+
+        <section id="sobre-mi" class="content-section">
+            <h3 class="section-headline">Sobre Mí</h3>
+            <div class="ui-card intro-card">
+                <p class="paragraphhighlight">
+                    Mis fortalezas principales están en la habilidad de innovación, la capacidad de análisis y resolución de problemas, la aceptación de retos, así como la perseverancia en lograr los objetivos propuestos. Todo esto gracias a mi flexibilidad, creatividad, capacidad de trabajar en equipo, confiabilidad y adaptabilidad a los cambios.
+                </p>
+                <p class="paragraph">
+                    Cuento con formación en gestión de empresas y una trayectoria coordinando la administración y la operación diaria tanto en entornos corporativos como comerciales. Mi experiencia abarca desde el control financiero integral y el liderazgo de personal en calle, hasta el desarrollo de canales e-commerce, administración web y optimización logística. Poseo una fuerte afinidad por el uso estratégico de la tecnología para simplificar procesos organizativos e implementar soluciones eficientes.
+                </p>
+            </div>
+        </section>
+
+        <section id="experiencia" class="content-section">
+            <h3 class="section-headline">Experiencia Laboral</h3>
+            
+            <div class="ux-timeline">
+                
+                <div class="timeline-block">
+                    <div class="node"></div>
+                    <div class="ui-card shelf">
+                        <div class="shelf-meta">
+                            <span class="date-badge">2023 - Presente</span>
+                            <span class="company-tag">Distrogaz / OcampoGas</span>
+                        </div>
+                        <h4 class="role-title">Jefe de Administración y Operaciones</h4>
+                        <p class="role-summary">Responsable de la gestión general y el control operativo de la empresa, actuando como el nexo principal con la dirección y asumiendo la toma de decisiones ejecutivas clave para garantizar el funcionamiento diario del negocio.</p>
+                        <ul class="bullet-list">
+                            <li><strong>Liderazgo y supervisión de personal:</strong> Coordinación del equipo interno y control de los choferes en la calle, auditando el cumplimiento de las rutas logísticas y el servicio al cliente.</li>
+                            <li><strong>Gestión comercial y presupuestos:</strong> Atención directa a cuentas clave, diálogo con municipios y armado de presupuestos para la prestación de servicios.</li>
+                            <li><strong>Control financiero integral:</strong> Manejo de cajas, recaudación diaria, conciliación de saldos de productos y análisis de los costos de la estructura para optimizar recursos.</li>
+                            <li><strong>Gestión de calle y trámites:</strong> Resolución presencial de gestiones operativas y administrativas externas ante diferentes organismos.</li>
+                            <li><strong>Coordinación regional:</strong> Auditoría presencial y control a distancia del depósito ubicado en Pergamino, Buenos Aires.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-block">
+                    <div class="node"></div>
+                    <div class="ui-card shelf">
+                        <div class="shelf-meta">
+                            <span class="date-badge">2020 - 2023</span>
+                            <span class="company-tag">Luciana Hogar S.A.</span>
+                        </div>
+                        <h4 class="role-title">Responsable de E-Commerce & Atención</h4>
+                        <p class="role-summary">Gestión integral del canal de ventas digitales y definición de la estrategia comercial para la plataforma web corporativa.</p>
+                        <ul class="bullet-list">
+                            <li><strong>E-Commerce & Marketing:</strong> Administración activa de la plataforma web de la empresa, catalogación de productos y gestión estratégica de redes sociales.</li>
+                            <li><strong>Ciclo Comercial Completo:</strong> Ejecución de ventas presenciales y digitales, atención personalizada al cliente y resolución de flujos en el servicio de posventa.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-block">
+                    <div class="node"></div>
+                    <div class="ui-card shelf">
+                        <div class="shelf-meta">
+                            <span class="date-badge">2017 - 2023</span>
+                            <span class="company-tag">Revela-T Fotografías</span>
+                        </div>
+                        <h4 class="role-title">Copropietario y Gestor de Contenidos</h4>
+                        <p class="role-summary">Dirección ejecutiva de un emprendimiento autónomo enfocado en diseño y fotografía social, controlando la captación, negociación y fidelización de clientes.</p>
+                        <ul class="bullet-list">
+                            <li><strong>Operación y Edición:</strong> Planificación técnica de sesiones fotográficas y procesado/edición digital avanzada mediante Photoshop.</li>
+                            <li><strong>Administración del Negocio:</strong> Ejecución de campañas de marketing digital, atención presencial al público y gestión estratégica de canales en redes sociales.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-block">
+                    <div class="node"></div>
+                    <div class="ui-card shelf">
+                        <div class="shelf-meta">
+                            <span class="date-badge">Abr 2016 - Jun 2016</span>
+                            <span class="company-tag">Petroplast S.A. (Santa Rosa, Mza)</span>
+                        </div>
+                        <h4 class="role-title">Pasante de Recursos Humanos y Desarrollo Comercial</h4>
+                        <p class="role-summary">Despliegue de funciones administrativas dentro del departamento de Capital Humano y diseño de propuestas de innovación comercial tecnológica.</p>
+                        <ul class="bullet-list">
+                            <li><strong>Gestión de RR.HH.:</strong> Control de asistencia horaria, emisión de notificaciones formales al personal, auditoría de vacaciones y digitalización integral de legajos físicos.</li>
+                            <li><strong>Proyecto de Innovación Técnica:</strong> Modelado de una propuesta comercial basada en Realidad Aumentada aplicada a la visualización interactiva de catálogos y proyección de datos corporativos.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="aptitudes" class="content-section">
+            <h3 class="section-headline">Aptitudes y Tecnologías</h3>
+            <div class="skills-layout">
+                <div class="pill-card"><i data-lucide="code-2"></i><span>Programación Full Stack</span></div>
+                <div class="pill-card"><i data-lucide="sheet"></i><span>Excel y Análisis de Costos</span></div>
+                <div class="pill-card"><i data-lucide="image"></i><span>Photoshop & Edición</span></div>
+                <div class="pill-card"><i data-lucide="monitor"></i><span>Administración Web / E-commerce</span></div>
+                <div class="pill-card"><i data-lucide="users"></i><span>Gestión de Capital Humano</span></div>
+                <div class="pill-card"><i data-lucide="sparkles"></i><span>Innovación y Adaptabilidad</span></div>
+            </div>
+        </section>
+
+        <section id="educacion" class="content-section">
+            <h3 class="section-headline">Educación y Títulos</h3>
+            
+            <div class="education-grid">
+                <div class="ui-card edu-shelf">
+                    <div class="edu-badge"><i data-lucide="award"></i></div>
+                    <div>
+                        <h4 class="edu-degree">Licenciado en Gestión de Negocios</h4>
+                        <span class="edu-university">Universidad Nacional de Cuyo</span>
+                        <span class="edu-years">Graduado (2018 - 2020)</span>
+                    </div>
+                </div>
+                <div class="ui-card edu-shelf">
+                    <div class="edu-badge"><i data-lucide="bookmark"></i></div>
+                    <div>
+                        <h4 class="edu-degree">Técnico Universitario en Gestión de Empresas</h4>
+                        <span class="edu-university">Instituto Tecnológico Universitario (ITU)</span>
+                        <span class="edu-years">Graduado (2014 - 2016)</span>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="sub-headline">
+                <i data-lucide="book-open"></i> Cursos y Certificaciones
+            </h4>
+            <div class="training-grid">
+                
+                <div class="training-card high-impact">
+                    <div class="training-icon"><i data-lucide="terminal"></i></div>
+                    <div class="training-details">
+                        <h5>Curso de Programación Web Full Stack (500 hs)</h5>
+                        <span class="training-issuer">Egg Education / Gobierno de Mendoza</span>
+                        <p>Formación intensiva teórico-práctica completada con éxito. Capacitación técnica robusta orientada al desarrollo web estructurado.</p>
+                    </div>
+                </div>
+
+                <div class="training-card">
+                    <div class="training-icon"><i data-lucide="calculator"></i></div>
+                    <div class="training-details">
+                        <h5>Liquidación de Sueldos, Monotributo e IIBB</h5>
+                        <span class="training-issuer">Capacitación Técnica</span>
+                        <p>Formación técnico-contable orientada a la gestión impositiva autónoma, obligaciones fiscales y administración de nóminas salariales.</p>
+                    </div>
+                </div>
+
+                <div class="training-card">
+                    <div class="training-icon"><i data-lucide="mouse-pointer"></i></div>
+                    <div class="training-details">
+                        <h5>Analítica Web y Productividad Personal</h5>
+                        <span class="training-issuer">Formación Digital</span>
+                        <p>Optimización del rendimiento operativo individual en la era digital y análisis de métricas web aplicadas a negocios.</p>
+                    </div>
+                </div>
+
+                <div class="training-card">
+                    <div class="training-icon"><i data-lucide="users-2"></i></div>
+                    <div class="training-details">
+                        <h5>Conducción Eficiente de Reuniones</h5>
+                        <span class="training-issuer">Desarrollo Profesional</span>
+                        <p>Técnicas de comunicación interna asertiva, optimización del tiempo organizativo y liderazgo de células de trabajo.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <button class="ui-scroll-btn" id="scrollTopBtn" aria-label="Ir arriba">
+        <i data-lucide="chevron-up"></i>
+    </button>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
